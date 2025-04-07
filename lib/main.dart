@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/g_store.dart';
+import 'package:myapp2/info.dart';
+import 'package:myapp2/inscription.dart';
+import 'package:myapp2/library.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: GStore(),
+      home: Library(),
     );
   }
 }

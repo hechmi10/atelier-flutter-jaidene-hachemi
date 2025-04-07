@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
+import 'package:myapp2/info.dart';
 
 class Gamecell extends StatelessWidget {
-  Game game;
-  Gamecell(this.game, {super.key});
+  final Game game;
+  const Gamecell(this.game, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,10 @@ class Gamecell extends StatelessWidget {
                 "${game.price} TND",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
+              ElevatedButton(onPressed: () {}, child: Text("Informations et Achat",style:TextStyle(color: Colors.red),))
             ],
           ),
+          
         ],
       ),
     );
