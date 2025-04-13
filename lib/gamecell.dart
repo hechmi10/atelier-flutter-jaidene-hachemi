@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
-import 'package:myapp2/info.dart';
+import 'package:myapp2/details.dart';
 
 class Gamecell extends StatelessWidget {
   final Game game;

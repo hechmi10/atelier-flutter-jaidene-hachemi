@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/g_store.dart';
-import 'package:myapp2/info.dart';
+import 'package:myapp2/game.dart';
+import 'package:myapp2/details.dart';
 import 'package:myapp2/inscription.dart';
 import 'package:myapp2/library.dart';
 
@@ -34,7 +35,12 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Inscription(),
+      home: Inscription(Game(
+        "lib/assets/minecraft.jpg",
+        "Minecraft",
+        50,
+      )),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
