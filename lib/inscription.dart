@@ -49,8 +49,8 @@ class Inscription extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: null, child: Text("S'inscrire")),
-              ElevatedButton(onPressed: null, child: Text("Annuler")),
+              ElevatedButton(onPressed:(){}, child: Text("S'inscrire")),
+              ElevatedButton(onPressed:(){}, child: Text("Annuler")),
             ],
           ),
         ],
