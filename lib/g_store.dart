@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
 import 'package:myapp2/gamecell.dart';
 
+// ignore: must_be_immutable
 class GStore extends StatelessWidget {
+  static const String routeName = "/store";
   var games = [
     Gamecell(Game("lib/assets/dmc5.jpg", "DMC", 200)),
     Gamecell(Game("lib/assets/fifa.jpg", "FIFA", 200)),

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
+import 'package:myapp2/inscription.dart';
+import 'package:myapp2/signin.dart';
 
+// ignore: must_be_immutable
 class Details extends StatefulWidget {
-  Game game;
-  Details(this.game, {super.key});
+  static const String routeName = "/details";
+  late Game game;
+  Details({super.key});
 
   @override
   State<Details> createState() => _DetailsState();
@@ -14,6 +18,7 @@ class _DetailsState extends State<Details> {
 
   @override
   Widget build(BuildContext context) {
+    widget.game = ModalRoute.of(context)?.settings.arguments as Game;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[400],
@@ -56,6 +61,20 @@ class _DetailsState extends State<Details> {
 
               label: Text("Acheter"),
             ),
+            ElevatedButton(onPressed:()=>{
+              Navigator.pushNamed(
+                context,
+                Inscription.routeName,
+                arguments: widget.game,
+              )
+            }, child: Text("Inscription")),
+            ElevatedButton(onPressed:()=>{
+              Navigator.pushNamed(
+                context,
+                SignIn.routeName,
+                arguments: widget.game,
+              )
+            }, child: Text("Connexion")),
           ],
         ),
       ),

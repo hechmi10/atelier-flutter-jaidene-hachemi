@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
 import 'package:myapp2/librarycell.dart';
 
+// ignore: must_be_immutable
 class Library extends StatelessWidget{
+  static const String routeName = "/library";
   var games = [
     Librarycell(Game("lib/assets/dmc5.jpg", "DMC", 200)),
     Librarycell(Game("lib/assets/fifa.jpg", "FIFA", 200)),

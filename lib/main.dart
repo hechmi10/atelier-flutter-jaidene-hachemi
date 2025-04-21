@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp2/g_store.dart';
-import 'package:myapp2/game.dart';
+import 'package:myapp2/bottomNavigationBar.dart';
 import 'package:myapp2/details.dart';
+import 'package:myapp2/forgotPassword.dart';
+import 'package:myapp2/g_store.dart';
 import 'package:myapp2/inscription.dart';
 import 'package:myapp2/library.dart';
+import 'package:myapp2/signin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,11 +37,16 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Inscription(Game(
-        "lib/assets/minecraft.jpg",
-        "Minecraft",
-        50,
-      )),
+      //initialRoute: GStore.routeName,
+      routes: {
+        SignIn.routeName: (context) => SignIn(),
+        ForgotPassword.routeName: (context) => ForgotPassword(),
+        BottomNavBar.routeName: (context) => BottomNavBar(),
+        GStore.routeName: (context) => GStore(),
+        Details.routeName: (context) => Details(),
+        Inscription.routeName: (context) => Inscription(),
+        Library.routeName: (context) => Library(),
+      },
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
