@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp2/CustomInputDecoration.dart';
 import 'package:myapp2/bottomNavigationBar.dart';
-import 'package:myapp2/game.dart';
 import 'package:myapp2/user.dart';
 import 'package:myapp2/userService.dart';
 
