@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp2/game.dart';
+import 'package:myapp2/gameService.dart';
 import 'package:myapp2/inscription.dart';
 import 'package:myapp2/signin.dart';
 
@@ -52,29 +53,26 @@ class _DetailsState extends State<Details> {
             Text("Quantity : $quantity"),
             //4 button
             ElevatedButton.icon(
-              onPressed: () {
+              onPressed: () async{
                 setState(() {
                   quantity--;
                 });
+                await GameService().saveGame(widget.game).then((value)=> 
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Game added"),
+                      content: Text("Game added to your basket"),
+                    );
+                  },
+                ));
               },
               icon: Icon(Icons.shopping_basket),
 
               label: Text("Acheter"),
             ),
-            ElevatedButton(onPressed:()=>{
-              Navigator.pushNamed(
-                context,
-                Inscription.routeName,
-                arguments: widget.game,
-              )
-            }, child: Text("Inscription")),
-            ElevatedButton(onPressed:()=>{
-              Navigator.pushNamed(
-                context,
-                SignIn.routeName,
-                arguments: widget.game,
-              )
-            }, child: Text("Connexion")),
+            
           ],
         ),
       ),

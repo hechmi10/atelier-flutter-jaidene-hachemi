@@ -22,7 +22,7 @@ class Gamecell extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(game.image, width: 200),
+            Image.network(game.image, width: 200),
             Column(
               children: [
                 Text(game.name, style: TextStyle(fontSize: 16)),

@@ -5,6 +5,7 @@ import 'package:myapp2/forgotPassword.dart';
 import 'package:myapp2/g_store.dart';
 import 'package:myapp2/inscription.dart';
 import 'package:myapp2/library.dart';
+import 'package:myapp2/profile.dart';
 import 'package:myapp2/signin.dart';
 
 void main() {
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         Details.routeName: (context) => Details(),
         Inscription.routeName: (context) => Inscription(),
         Library.routeName: (context) => Library(),
+        Profile.routeName: (context) => Profile(),
       },
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

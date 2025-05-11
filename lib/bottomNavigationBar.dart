@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:myapp2/basket.dart';
 import 'package:myapp2/g_store.dart';
 import 'package:myapp2/library.dart';
+import 'package:myapp2/profile.dart';
 
 class BottomNavBar extends StatefulWidget {
-  static const String routeName = "/";
+  static const String routeName = "/bottomNavBar";
 
   const BottomNavBar({super.key});
 
@@ -13,7 +14,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  List<Widget> pages = [GStore(), Library(), Basket()];
+  List<Widget> pages = [Profile(),GStore(), Library(), Basket()];
 
   var mcurrentIndex = 0;
 
@@ -30,6 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           });
         },
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           BottomNavigationBarItem(icon: Icon(Icons.store), label: "Store"),
           BottomNavigationBarItem(
             icon: Icon(Icons.library_books),
