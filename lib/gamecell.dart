@@ -10,19 +10,17 @@ class Gamecell extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        
-        Navigator.pushNamed(
-          context,
-          '/details',
-          arguments: game,
-        );
+        Navigator.pushNamed(context, '/details', arguments: game);
       },
       child: Container(
         padding: EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.network(game.image, width: 200),
+            Image.network(
+              game.image,
+              width: 200
+            ),
             Column(
               children: [
                 Text(game.name, style: TextStyle(fontSize: 16)),
@@ -30,7 +28,6 @@ class Gamecell extends StatelessWidget {
                   "${game.price} TND",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-
               ],
             ),
           ],

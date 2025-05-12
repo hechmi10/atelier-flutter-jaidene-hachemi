@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as restHttp;
+import 'package:http/http.dart' as resthttp;
 import 'package:myapp2/game.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -8,26 +8,31 @@ import 'package:sqflite/sqflite.dart';
 class GameService {
   //REST API
   Future<List<Game>> getGames() async {
-    List<Game> games = [];
-    var url = Uri.parse(
-      "https://free-to-play-games-database.p.rapidapi.com/api/games",
-    );
-    var headers = {
+  try {
+    final url = Uri.parse("https://free-to-play-games-database.p.rapidapi.com/api/games");
+    final headers = {
       "x-rapidapi-key": "7d98ada9eemsh351d96e8abec8c7p1d226ejsnf1ba48755afc",
       "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
     };
-    await restHttp.get(url,headers:headers).then((response) {
-      if (response.statusCode == 200) {
-        List<dynamic> data = jsonDecode(response.body)['data'];
-        for (var game in data) {
-          games.add(Game(game['thumbnail'], game['title'], 200));
-        }
-      } else {
-        print("Error: ${response.statusCode}");
-      }
-    });
-    return games;
+
+    final response = await resthttp.get(url, headers: headers);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = jsonDecode(response.body);
+      return data.map((game) => Game(
+        game['thumbnail'] ?? '', 
+        game['title'] ?? 'Unknown', 
+        200
+      )).toList();
+    } else {
+      print("Error: ${response.statusCode}");
+      throw Exception('Failed to load games: ${response.statusCode}');
+    }
+  } catch (e) {
+    print("Exception: $e");
+    throw Exception('Failed to load games: $e');
   }
+}
 
   //local
   Future<void> saveGame(Game game) async {

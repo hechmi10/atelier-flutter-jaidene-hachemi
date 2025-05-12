@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp2/bottomNavigationBar.dart';
 import 'package:myapp2/forgotPassword.dart';
@@ -96,7 +97,7 @@ class SignIn extends StatelessWidget {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Username cannot be empty';
+                    return 'Password cannot be empty';
                   }else if (value.length < 8) {
                     return 'Password must be at least 8 characters long';
                   }
@@ -131,8 +132,10 @@ class SignIn extends StatelessWidget {
                       },
                     );
                     await UserService().getCurrentUser().then((user) {
-                      print("User name: ${user.name}");
-                      print("User email: ${user.email}");
+                      if (kDebugMode) {
+                        print("User name: ${user.name}");
+                        print("User email: ${user.email}");
+                      }
                     });
                   }
                 }),

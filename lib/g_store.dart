@@ -13,8 +13,6 @@ class GStore extends StatelessWidget {
   ];
   GStore({super.key});
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +20,17 @@ class GStore extends StatelessWidget {
         backgroundColor: Colors.red[400],
         title: Text("G Store Esprit"),
       ),
-      body:FutureBuilder(
-        future: GameService().getGames()
-        , builder: (context,snapshot){
-          if(snapshot.connectionState == ConnectionState.waiting){
-            return Center(child: CircularProgressIndicator(),);
+      body: FutureBuilder(
+        future: GameService().getGames(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
           }
-          if(snapshot.hasError){
-            return Center(child: Text("Error"),);
+          if (snapshot.hasError) {
+            return Center(child: Text("Error"));
           }
-          if(!snapshot.hasData || snapshot.data!.isEmpty){
-            return Center(child: Text("No games available"),);
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text("No games available"));
           }
           return ListView.builder(
             itemCount: snapshot.data!.length,
@@ -42,7 +40,7 @@ class GStore extends StatelessWidget {
           );
         },
       ),
-       /*ListView.builder(
+      /*ListView.builder(
           itemCount:games.length,
           itemBuilder: (context, index) {
             return games[index];
