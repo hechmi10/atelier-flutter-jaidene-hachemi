@@ -14,7 +14,7 @@ class Librarycell extends StatelessWidget {
       },
       child: Column(
         children: [
-          Image.asset(game.image),
+          Image.network(game.image),
           Text(game.name),
           Text("${game.price} TND"),
         ],

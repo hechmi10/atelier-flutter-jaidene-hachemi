@@ -59,7 +59,7 @@ class GameService {
       );
       print("Game added");
     });
-    database.close();
+    await database.close();
   }
 
   Future<List<Game>> getAllGames() async {
@@ -73,7 +73,7 @@ class GameService {
         games.add(Game(map['image'], map['name'], map['price']));
       }
     });
-    database.close();
+    await database.close();
     return games;
   }
 }

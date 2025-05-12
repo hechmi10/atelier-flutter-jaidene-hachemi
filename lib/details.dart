@@ -30,7 +30,7 @@ class _DetailsState extends State<Details> {
         child: ListView(
           children: [
             //1 image
-            Image.asset(widget.game.image, width: 250),
+            Image.network(widget.game.image, width: 250),
             //2 description
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
